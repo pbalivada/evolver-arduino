@@ -7,7 +7,7 @@ boolean stringComplete = false;  // whether the string is complete
 boolean serialAvailable = true;  // if serial port is ok to write on
 
 // Mux Shield Components and Control Pins
-int s0 = 7, s1 = 8, s2 = 9, s3 = 10, SIG_pin = 0;
+int s0 = 2, s1 = 3, s2 = 4, s3 = 5, SIG_pin = 0; // Spare A (left slot for the SA Board)
 int num_vials = 16;
 int mux_readings[16]; // The size Assumes number of vials
 String comma = ",";
@@ -56,7 +56,7 @@ void loop() {
       else if (in.input_array[0] == "st") {
         serialAvailable = true;
       }
-      else if (in.input_array[0] == "90"){ // 90 degree photodiode from IR LED
+      else if (in.input_array[0] == "135"){ // 90 degree photodiode from IR LED
         SerialUSB.println("Updating Values!");
         read_MuxShield();;
 
